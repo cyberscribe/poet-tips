@@ -14,3 +14,12 @@ Inherited from Phase 1–2: see PHASE_1.md and PHASE_2.md.
 - 3.4 null: 1000 permutations of birth years across poets (within top-12 communities). One-tailed test: communities have lower within-group variance than random. Effect size = (null_mean - obs) / null_std.
 - 3.5 gender test: chi-square on M/F counts per community, expected proportional to overall M/F ratio in dataset (population-controlled). NB excluded (n=10).
 - 3.6 edge split: 90/10 random (seed 42). node2vec: dim=64, walk_length=20, num_walks=10, p=1, q=1 (unbiased), window=5, epochs=10. Cosine similarity of embedding pairs as score.
+
+## LLM Graph Extension
+
+- Degree threshold for high-degree POC run: ≥ 10 (1,278 poets). Rationale: covers the bulk of the graph's edge weight while keeping the run to ~9.5 hrs on M3.
+- Model: phi4:14b (Q4_K_M). Rationale: no thinking-mode overhead (unlike qwen3.5), strong instruction following, adequate English literary knowledge, ~27s/query on M3.
+- Top-N neighbours per query: 10. Rationale: matches the "top-10 most similar" framing; sparse enough to keep the LLM graph comparable in density to the human graph.
+- Temperature: 0.1. Rationale: low temperature for reproducibility; similarity rankings should be near-deterministic for well-known poets.
+- Scores treated as ordinal ranks within each query, not calibrated cross-query distances. Rationale: smoke test showed score compression (0.73–0.92, ~0.02 step) consistent with rank-encoding rather than true similarity distances.
+- Symmetrisation strategy for comparison with undirected human graph: TBD after full run.
