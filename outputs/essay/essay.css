@@ -1,0 +1,15 @@
+
+body { max-width: 680px; margin: 60px auto; padding: 0 24px;
+       font-family: Georgia, 'Times New Roman', serif; font-size: 17px;
+       line-height: 1.7; color: #1a1a1a; background: #fafaf8; }
+h1 { font-size: 1.9em; line-height: 1.2; margin-bottom: 0.2em; }
+h2 { font-size: 1.25em; margin-top: 2.2em; margin-bottom: 0.5em;
+     border-bottom: 1px solid #ddd; padding-bottom: 0.2em; color: #222; }
+.subtitle { font-size: 1.1em; color: #555; margin-bottom: 0.2em; }
+.author-date { color: #888; font-size: 0.9em; margin-bottom: 2em; }
+p { margin: 0.85em 0; }
+strong { color: #111; }
+em { font-style: italic; }
+hr { border: none; border-top: 1px solid #ddd; margin: 2.5em 0; }
+a { color: #3a6fa0; }
+@media (max-width: 720px) { body { font-size: 15px; } }
