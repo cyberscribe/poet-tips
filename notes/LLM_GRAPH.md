@@ -30,6 +30,10 @@ nohup python3 src/mine_llm_graph.py --threshold 10 > logs/llm_graph.log 2>&1 &
 echo $! > logs/llm_graph.pid
 ```
 
+## Run status
+
+Full high-degree run started 2026-05-13. Checkpoint at `data/llm_graph/checkpoint.json`; partial results in `data/llm_graph/results.jsonl`. Resume-safe — re-running the script skips completed poets.
+
 ## POC smoke test (2026-05-12)
 
 Three highest-degree poets queried (Amy Lemmon, Richard Siken, Anne Carson). Results look substantively reasonable. Two output artefacts to clean in post-processing:

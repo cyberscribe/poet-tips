@@ -28,7 +28,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-GRAPH_FILE = "poet_tips-20191025.graphml"
+GRAPH_FILE = Path("data/raw/poet_tips-20191025.graphml")
 OUTPUT_DIR = Path("data/llm_graph")
 OLLAMA_URL = "http://localhost:11434/api/chat"
 REQUEST_TIMEOUT = 120
@@ -49,7 +49,7 @@ USER_TEMPLATE = (
 
 
 def load_poets(min_degree: int) -> list[str]:
-    g = ig.Graph.Read_GraphML(GRAPH_FILE)
+    g = ig.Graph.Read_GraphML(str(GRAPH_FILE))
     pairs = sorted(
         zip(g.vs["id"], g.degree()), key=lambda x: x[1], reverse=True
     )

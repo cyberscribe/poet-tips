@@ -1,6 +1,16 @@
-.PHONY: all phase0 phase1 phase2 phase3 phase4 phase5 lint
+.PHONY: all bootstrap phase0 phase1 phase2 phase3 phase4 phase5 lint
 
 PYTHON := .venv/bin/python
+GRAPHML := data/raw/poet_tips-20191025.graphml
+GRAPHML_URL := https://archive.org/download/poet_tips-20191025/poet_tips-20191025.graphml
+GRAPHML_SHA256 := 4aa9bafca51cbbbc04ced9bd4d71f5ce15276bd65af6b7d68ff2dd09f981bd7c
+
+bootstrap: $(GRAPHML)
+
+$(GRAPHML):
+	mkdir -p data/raw
+	curl -L --fail -o $@ $(GRAPHML_URL)
+	echo "$(GRAPHML_SHA256)  $@" | shasum -a 256 -c -
 
 all: phase1 phase2 phase3 phase4 phase5
 

@@ -10,6 +10,7 @@ Analysis of the [Poet Tips](https://archive.org/details/poet_tips-20191025) data
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+make bootstrap    # download + verify raw GraphML (gitignored, ~3 MB)
 make all          # or: python src/run_all.py
 ```
 
@@ -25,6 +26,7 @@ Each phase writes its output before the next begins. Phase 0 requires human sign
 | 3 | Analysis questions | Complete — see `notes/PHASE_3.md` |
 | 4 | Interactive viewer | Complete — `outputs/interactive/explorer.html` |
 | 5 | Essay | Complete — `outputs/essay/findings.html` |
+| LLM | LLM similarity graph (phi4:14b, n≥10) | In progress — `data/llm_graph/results.jsonl` |
 
 ## Outputs
 
