@@ -2,3 +2,5 @@
 *.graphml
 .claude/settings.local.json
 data/
+*.log
+*.pid
